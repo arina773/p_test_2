@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #111111;
+            color: white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        p, a {
+            font-size: 24px;
+        }
+
+        a {
+            color: red;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>16 Personalities Test</h1>
+        <p>{{ text }}</p>
+        {% if choices %}
+            <ul>
+                {% for (result, page_name, letter, choice) in choices %}
+                <li>
+                    {% set letter = result + letter %}
+
+                    <a href="{{ url_for(page_name, letter=letter) }}">{{choice}}</a>
+                </li>
+                <br>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p><a href="{{url_for('start', my_var='my_value')}}">Play again.</a></p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
