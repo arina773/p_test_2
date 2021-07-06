@@ -64,9 +64,37 @@ def forth_q(letter):
 def result_p(letter):
     title = "Congrats. You are all done!"
 
-    text = f'Your result is {letter}'
+    text = f'Your result is'
     choices = []
-    return render_template('adventure.html', title=title, text=text, choices=choices)
+
+    types = {
+        # Analysts
+        'intj': ('intj.png', 'Architect', 'imaginative and strategic thinkers, with a plan for everything'),
+        'intp': ('intp.png', 'Logician', 'innovative inventors with an unquenchable thirst for knowledge'),
+        'entj': ('entj.png', 'Commander', 'bold, imaginative and strong-willed leaders, always finding a way - or making one'),
+        'entp': ('entp.png', 'Debater', 'smart and curious thinkers who cannot resist an intellectual challenge'),
+
+        # Diplomats
+        'infj': ('infj.png', 'Advocate', 'quiet and mystical, yet very inspiring and tireless idealists'),
+        'infp': ('infp.png', 'Mediator', 'poetic, kind and altruistic people, always eager to help a good cause.'),
+        'enfj': ('enfj.png', 'Protogonist', 'charismatic and inspiring leaders, able to mesmerize their listeners.'),
+        'enfp': ('enfp.png', 'Campaigner', 'enthusiastic, creative and sociable free spirits, who can always find a reason to smile.'),
+
+        # Sentinels
+        'istj': ('istj.png', 'Logistican', 'practical and fact-minded individuals, whose reliability cannot be doubted.'),
+        'isfj': ('isfj.png', 'Defender', 'very dedicated and warm protectors, always ready to defend their loved ones.'),
+        'estj': ('estj.png', 'Executive', 'excellent administrators, unsurpassed at managing things – or people.'),
+        'esfj': ('esfj.png', 'Consul', 'extraordinarily caring, social and popular people, always eager to help.'),
+
+        # Explorers
+        'istp': ('istp.png', 'Virtuoso', 'bold and practical experimenters, masters of all kinds of tools.'),
+        'isfp': ('isfp.png', 'Adventurer', 'flexible and charming artists, always ready to explore and experience something new.'),
+        'estp': ('estp.png', 'Enterprenuer', 'smart, energetic and very perceptive people, who truly enjoy living on the edge.'),
+        'esfp': ('esfp.png', 'Entertainer', 'spontaneous, energetic and enthusiastic people – life is never boring around them.'),
+    }
+    type = types[letter.lower()]
+
+    return render_template('adventure.html',type=type, letter=letter, title=title, text=text, choices=choices)
 
 
 if __name__ == '__main__':

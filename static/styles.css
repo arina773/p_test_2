@@ -1,0 +1,30 @@
+body {
+            background-color: #222222;
+            color: white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            align-content: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        p, a {
+            font-size: 24px;
+        }
+
+        a {
+            color: red;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+        }
+
+        .img {
+            width: 225px;
+            height: 225px
+        }
